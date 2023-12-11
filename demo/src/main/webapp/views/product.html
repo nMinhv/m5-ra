@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1 class="text-center danger"><span th:text="#{product}"></span></h1>
+      <table class="table">
+        <thead>
+        <tr>
+          <th><span th:text="#{number}"></span></th>
+          <th><span th:text="#{ProductCode}"></span></th>
+          <th><span th:text="#{ProductName}"></span></th>
+          <th><span th:text="#{Price}"></span></th>
+          <th><span th:text="#{description}"></span></th>
+          <th><span th:text="#{categoryName}"></span></th>
+          <th><span th:text="#{action}"></span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p,index:${list}">
+          <td th:text="${index.count}"></td>
+          <td th:text="${p.id}"></td>
+          <td th:text="${p.name}"></td>
+          <td th:text="${p.price}"></td>
+          <td th:text="${p.description}"></td>
+          <td th:text="${p.category.name}"></td>
+          <td>
+            <a th:href="@{'/delete-product/' + ${p.id}}" class="btn btn-danger"><span th:text="#{delete}"></span></a>
+            <a th:href="@{'/edit-product/' + ${p.id}}" class="btn btn-primary"><span th:text="#{edit}"></span></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <a href="/add-product" class="btn btn-success"><span th:text="#{add}"></span></a>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+</body>
+</html>
