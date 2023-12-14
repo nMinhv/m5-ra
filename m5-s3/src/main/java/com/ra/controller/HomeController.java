@@ -96,7 +96,6 @@ public class HomeController {
         }
         return "redirect:/add-product";
     }
-
     @GetMapping("/delete-product/{id}")
     public String deleteProduct(@PathVariable("id") Integer id) {
         productService.delete(id);
