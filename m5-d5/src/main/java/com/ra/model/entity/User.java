@@ -2,6 +2,8 @@ package com.ra.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class User {
     @Id
@@ -35,12 +37,24 @@ public class User {
         this.email = email;
     }
 
+    @OneToMany(mappedBy = "users")
+    Set<Orders> orders;
+
     public User() {
     }
 
-    public User(Integer UID, String fullName, String email) {
+    public User(Integer UID, String fullName, String email, Set<Orders> orders) {
         this.UID = UID;
         this.fullName = fullName;
         this.email = email;
+        this.orders = orders;
+    }
+
+    public Set<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Orders> orders) {
+        this.orders = orders;
     }
 }

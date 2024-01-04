@@ -7,36 +7,36 @@ import jakarta.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer product_id;
-    private String product_name;
-    private Double product_price;
+    private Integer productId;
+    private String productName;
+    private Double productPrice;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id",referencedColumnName = "categoryId")
     private Category category;
 
-    public Integer getProduct_id() {
-        return product_id;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
+    public void setProductId(Integer product_id) {
+        this.productId = product_id;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setProductName(String product_name) {
+        this.productName = product_name;
     }
 
-    public Double getProduct_price() {
-        return product_price;
+    public Double getProductPrice() {
+        return productPrice;
     }
 
-    public void setProduct_price(Double product_price) {
-        this.product_price = product_price;
+    public void setProductPrice(Double product_price) {
+        this.productPrice = product_price;
     }
 
     public Category getCategory() {
@@ -48,9 +48,9 @@ public class Product {
     }
 
     public Product(Integer product_id, String product_name, Double product_price, Category category) {
-        this.product_id = product_id;
-        this.product_name = product_name;
-        this.product_price = product_price;
+        this.productId = product_id;
+        this.productName = product_name;
+        this.productPrice = product_price;
         this.category = category;
     }
 
